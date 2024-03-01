@@ -8,4 +8,9 @@ return [
         'confirm' => 'Confirmar',
         'cancel' => 'Cancelar',
     ],
+    'validation' => [
+        'body' => [
+            'required' => 'Por favor ingrese el texto de la tarea.',
+        ],
+    ],
 ];
