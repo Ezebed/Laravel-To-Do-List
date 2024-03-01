@@ -6,21 +6,21 @@ use Livewire\Component;
 
 class CreateTaskButton extends Component
 {
-    public $showTaskForm = false;
+    public $showModal = false;
 
-    public function showModal()
+    public function openModal()
     {
-        $this->showTaskForm = true;;
+        $this->showModal = true;
     }
 
     public function createTask(){
 
-        $this->showTaskForm = false;
+        $this->closeModal();
     }
 
     public function closeModal()
     {
-        $this->showTaskForm = false;
+        $this->showModal = false;
     }
 
     public function render()
