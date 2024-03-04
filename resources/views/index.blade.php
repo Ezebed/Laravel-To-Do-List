@@ -15,5 +15,6 @@
 
         <livewire:to-do-list />
         
+        <livewire:TaskHandler />
     </div>
 @endsection

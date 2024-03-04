@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToDoController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\TaskController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,8 @@ Route::middleware('auth','verified')->group(function (){
     Route::get('lang/{lang}',[LanguageController::class, 'SwitchLanguage'])->name('lang');
 
     Route::get('/to-do-list', [ToDoController::class, 'index'])->name('index');
+
+    
 });
 
 require __DIR__.'/auth.php';
