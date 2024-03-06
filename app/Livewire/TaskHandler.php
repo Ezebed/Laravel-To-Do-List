@@ -8,6 +8,7 @@ use App\Models\Task;
 
 use Livewire\Attributes\On;
 
+
 class TaskHandler extends Component
 {
     #[on('create-task')]
@@ -17,6 +18,14 @@ class TaskHandler extends Component
             'user_id' => Auth()->user()->id,
             'body' => $taskBody,
         ]);
+        
+        $this->dispatch('load-task');
+    }
+
+    #[on('delete-task')]
+    public function deleteTask($taskID)
+    {
+        Task::where('id',$taskID)->delete();
 
         $this->dispatch('load-task');
     }

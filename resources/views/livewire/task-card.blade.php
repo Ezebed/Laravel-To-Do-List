@@ -17,8 +17,7 @@
             <button 
                 type="button"
                 class="{{$button_delete}}"
-                wire:click="deleteTask"
-                wire:confirm="deseas eliminaresta tarea?"    
+                wire:click="deleteTask"  
             >X</button>
         </div>
     </div>

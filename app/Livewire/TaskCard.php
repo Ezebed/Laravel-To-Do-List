@@ -12,7 +12,7 @@ class TaskCard extends Component
 
     public function deleteTask()
     {
-        dd('task deleted');
+        $this->dispatch('delete-task',taskID:$this->taskID);
     }
 
     public function render()
