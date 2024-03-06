@@ -4,14 +4,21 @@ namespace App\Livewire;
 
 use Livewire\Component;
 
-use Livewire\Attributes\On; 
+use App\Models\Task;
+
+use Livewire\Attributes\On;
 
 class TaskHandler extends Component
 {
     #[on('create-task')]
     public function createTask($taskBody)
     {
-        dd('task creado: '.$taskBody);
+        Task::create([
+            'user_id' => Auth()->user()->id,
+            'body' => $taskBody,
+        ]);
+
+        $this->dispatch('load-task');
     }
 
     public function render()

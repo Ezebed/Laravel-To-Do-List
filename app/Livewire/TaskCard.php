@@ -6,7 +6,15 @@ use Livewire\Component;
 
 class TaskCard extends Component
 {
-    public $taskBody = "Esta es una tarea larga";
+    public $taskID;
+
+    public $taskBody;
+
+    public function deleteTask()
+    {
+        dd('task deleted');
+    }
+
     public function render()
     {
         return view('livewire.task-card');

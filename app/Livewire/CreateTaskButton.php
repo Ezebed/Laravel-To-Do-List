@@ -3,24 +3,32 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Redirect;
+
+use Livewire\Attributes\Validate;
 
 class CreateTaskButton extends Component
 {
     public $showModal = false;
 
-    public $body;
+    #[Validate('required|max:255', as: 'Tarea')]
+    public $body = '';
 
     public function openModal()
     {
         $this->showModal = true;
+
+        
+        $this->reset('body');
     }
 
     public function createTask(){
 
-        $this->dispatch('create-task',taskBody: $this->body);
+        $validated = $this->validate();
 
-        $this->reset('body');
+        $this->dispatch('create-task',taskBody: $validated['body']);
+        
+
+        
 
         $this->closeModal();
         
