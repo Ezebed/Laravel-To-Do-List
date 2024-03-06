@@ -10,9 +10,28 @@ class TaskCard extends Component
 
     public $taskBody;
 
+    public $originalBody;
+
+    public $editable = false;
+
+    public function mount()
+    {
+        $this->originalBody = $this->taskBody;
+    }
+
     public function deleteTask()
     {
         $this->dispatch('delete-task',taskID:$this->taskID);
+    }
+
+    public function setEditable()
+    {
+        $this->editable = true;
+    }
+
+    public function unsetEditable()
+    {
+        $this->editable = false;
     }
 
     public function render()
