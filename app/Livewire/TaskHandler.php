@@ -30,6 +30,18 @@ class TaskHandler extends Component
         $this->dispatch('load-task');
     }
 
+    #[on('update-task')]
+    public function updateTask($taskID,$taskBody)
+    {
+        $taskToUpdate = Task::find($taskID);
+
+        $taskToUpdate->body = $taskBody;
+
+        $taskToUpdate->save();
+
+        $this->dispatch('load-task');
+    }
+
     public function render()
     {
         return <<<'HTML'

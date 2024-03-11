@@ -32,6 +32,15 @@ class TaskCard extends Component
     public function unsetEditable()
     {
         $this->editable = false;
+
+        $this->taskBody = $this->originalBody;
+    }
+
+    public function updateTask()
+    {
+        $this->editable = false;
+        
+        $this->dispatch('update-task', taskID:$this->taskID, taskBody:$this->taskBody);
     }
 
     public function render()

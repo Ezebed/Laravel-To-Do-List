@@ -1,6 +1,6 @@
 @php
     // clases
-    $button_class = "w-fit h-fit px-4 py-2 rounded-sm active:scale-[.9] transition-all";
+    $button_class = "w-fit h-fit px-4 py-2 rounded-sm active:scale-[.9] shadow-[3px_3px_0_0_#000] active:shadow-[none] transition-all ";
     $button_modal = $button_class." bg-indigo-400 hover:bg-indigo-600";
     $button_confirm = $button_class." bg-green-500 hover:bg-green-700";
     $button_cancel = $button_class." bg-red-500 hover:bg-red-700";
@@ -31,7 +31,7 @@
                 @error('body')<div class="col-span-2 text-red-800 bg-red-300 rounded-lg px-4 py-2"> {{$message}} </div>@enderror
                 
                 <input class="{{$button_confirm}} " type="submit" value="{{__('ToDoList.button.confirm')}}">
-                <button wire:click="closeModal" class="{{$button_cancel}} " >{{__('ToDoList.button.cancel')}}</button>
+                <button type="button" wire:click="closeModal" class="{{$button_cancel}} " >{{__('ToDoList.button.cancel')}}</button>
             </form>
         </div>
     @endif
