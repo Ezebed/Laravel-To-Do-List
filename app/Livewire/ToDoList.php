@@ -16,6 +16,7 @@ class ToDoList extends Component
     public function mount()
     {
         $this->tasks = Task::where('user_id',Auth()->user()->id)->get();
+        // dd($this->tasks);
         
     }
 

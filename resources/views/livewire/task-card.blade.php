@@ -5,9 +5,18 @@
     $button_delete = $button_class." bg-red-500 hover:bg-red-700";
     $button_confirm = $button_class." bg-green-500 hover:bg-green-700";
 @endphp
-<div x-data="{ inputHeight: 0 }" class="flex h-fit" >
-    <input x-bind:style="'height:'+ inputHeight +'px'" type="checkbox" class="appearance-none w-4 rounded-l-md focus:ring-inset focus:ring-offset-0 focus:ring-transparent ">
-    <div x-init="inputHeight = $el.clientHeight" class="flex w-full min-h-14 h-full p-2 bg-gray-700 justify-between items-center rounded-sm" >
+<div x-data="{ inputHeight: 0 }"  class="flex h-fit" >
+    <input 
+        x-bind:style="'height:'+ inputHeight +'px'" 
+        type="checkbox" 
+        name="taskcheck" 
+        @if($taskStatus) checked  @endif 
+        wire:click="updateStatus"
+        class="appearance-none w-8 rounded-l-md focus:ring-inset focus:ring-offset-0 focus:ring-transparent ">
+    <div 
+        x-init="inputHeight = $el.clientHeight" 
+        x-on:resize.window="inputHeight = $el.clientHeight"
+        class="flex w-full min-h-14 h-full p-2 bg-gray-700 justify-between items-center rounded-sm" >
 
         <!-- texto de la tarjeta -->
         
@@ -44,11 +53,8 @@
                 </button>
             </div>
         @else
-            <div class="mr-4 flex items-center">
-                
-                <p class="w-full">{{$taskBody}}</p>
-            </div>
-
+            <p class="w-full mr-4">{{$taskBody}}</p>
+            
             <!-- botones de accion -->
             <div class="flex items-center space-x-2">
                 <button 

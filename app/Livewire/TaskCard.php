@@ -12,6 +12,8 @@ class TaskCard extends Component
 
     public $originalBody;
 
+    public $taskStatus;
+
     public $editable = false;
 
     public function mount()
@@ -41,6 +43,11 @@ class TaskCard extends Component
         $this->editable = false;
         
         $this->dispatch('update-task', taskID:$this->taskID, taskBody:$this->taskBody);
+    }
+
+    public function updateStatus()
+    {
+        $this->dispatch('update-status', taskID: $this->taskID, newStatus: $this->taskStatus == 1 ? 0 : 1 );
     }
 
     public function render()
