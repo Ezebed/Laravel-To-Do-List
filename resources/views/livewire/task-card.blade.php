@@ -5,9 +5,9 @@
     $button_delete = $button_class." bg-red-500 hover:bg-red-700";
     $button_confirm = $button_class." bg-green-500 hover:bg-green-700";
 @endphp
-<div class="flex " >
-    <input type="checkbox" class="appearance-none min-h-full w-4 rounded-l-md focus:ring-inset focus:ring-offset-0 focus:ring-transparent ">
-    <div class="flex w-full min-h-14 h-full p-2 bg-gray-700 justify-between items-center rounded-sm" >
+<div x-data="{ inputHeight: 0 }" class="flex h-fit" >
+    <input x-bind:style="'height:'+ inputHeight +'px'" type="checkbox" class="appearance-none w-4 rounded-l-md focus:ring-inset focus:ring-offset-0 focus:ring-transparent ">
+    <div x-init="inputHeight = $el.clientHeight" class="flex w-full min-h-14 h-full p-2 bg-gray-700 justify-between items-center rounded-sm" >
 
         <!-- texto de la tarjeta -->
         
