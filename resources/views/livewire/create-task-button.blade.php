@@ -14,7 +14,7 @@
     </button>
 
     @if($showModal)
-        <div class="fixed w-screen h-screen bg-[rgba(50_50_50_/0.9)] top-0 left-0 flex items-center justify-center md:grid md:place-content-center  ">
+        <div class="fixed w-screen h-screen bg-[rgba(50_50_50_/0.9)] top-0 left-0 flex items-center justify-center md:grid md:place-content-center z-10 ">
             <form 
                 wire:submit.prevent="createTask" 
                 class="w-11/12 md:w-[40rem] md:min-h-[16rem] px-2 py-4 bg-gray-700 flex items-center justify-center flex-col md:grid gap-y-3 md:grid-cols-2 md:place-items-center rounded-md">
@@ -22,7 +22,7 @@
                 <textarea 
                     wire:model="body"
                     name="textBody" 
-                    placeholder="hola mundo"
+                    placeholder="{{__('ToDoList.textArea_placeholder')}}"
                     autofocus
                     class="w-11/12 md:w-10/12 min-h-12 max-h-80 resize-none mx-auto p-2 mt-2 col-span-2 text-black caret-indigo-500 rounded-md"
                     x-init="$nextTick(() => resize())"

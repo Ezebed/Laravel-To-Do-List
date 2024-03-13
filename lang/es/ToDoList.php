@@ -3,6 +3,7 @@
 return [
     'title' => 'Lista De Tareas',
     'textArea_placeholder' => 'Escriba una Tarea',
+    'listEmpty' => 'La lista esta vacia :(',
     'button' => [
         'add' => 'Agregar Tarea',
         'confirm' => 'Confirmar',
