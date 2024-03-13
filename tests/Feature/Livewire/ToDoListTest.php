@@ -8,12 +8,16 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Livewire;
 use Tests\TestCase;
 
+use App\Models\User;
+
 class ToDoListTest extends TestCase
 {
     /** @test */
     public function renders_successfully()
     {
-        Livewire::test(ToDoList::class)
+        $user = User::factory()->create();
+        Livewire::actingAs($user)
+            ->test(ToDoList::class)
             ->assertStatus(200);
     }
 }
