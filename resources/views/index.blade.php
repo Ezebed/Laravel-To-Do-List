@@ -5,7 +5,7 @@
 @section('content')
     <div class='w-ful min-h-full px-8 py-4'>
         <!-- Title -->
-        <div class=" h-[8rem] flex items-center justify-center border-b-2 border-indigo-500" >
+        <div class=" min-h-[8rem] pb-4 flex items-center justify-center border-b-2 border-indigo-500" >
             <h1 class="text-7xl italic font-bold" >{{__('ToDoList.title')}}</h1>
         </div>
         <!-- button of actions -->

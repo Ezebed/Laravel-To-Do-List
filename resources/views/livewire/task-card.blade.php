@@ -1,6 +1,6 @@
 @php
     // clases
-    $button_class = "w-fit h-fit px-4 py-2 rounded-sm active:scale-[.9] shadow-[3px_3px_0_0_#000] active:shadow-[none] transition-all ";
+    $button_class = "w-full md:w-fit h-fit md:px-4 py-2 rounded-sm flex justify-center active:scale-[.9] shadow-[3px_3px_0_0_#000] active:shadow-[none] transition-all ";
     $button_edit = $button_class." bg-yellow-300 hover:bg-yellow-500";
     $button_delete = $button_class." bg-red-500 hover:bg-red-700";
     $button_confirm = $button_class." bg-green-500 hover:bg-green-700";
@@ -12,11 +12,12 @@
         name="taskcheck" 
         @if($taskStatus) checked  @endif 
         wire:click="updateStatus"
-        class="appearance-none w-8 rounded-l-md focus:ring-inset focus:ring-offset-0 focus:ring-transparent ">
+        class="appearance-none w-8 rounded-l-md focus:ring-inset focus:ring-offset-0 focus:ring-transparent "
+    >
     <div 
         x-init="inputHeight = $el.clientHeight" 
         x-on:resize.window="inputHeight = $el.clientHeight"
-        class="flex w-full min-h-14 h-full p-2 bg-gray-700 justify-between items-center rounded-sm" >
+        class="w-full min-h-14 h-full p-2 bg-gray-700 space-y-8 md:space-y-0 md:flex  md:justify-between md:items-center rounded-sm" >
 
         <!-- texto de la tarjeta -->
         
@@ -53,7 +54,7 @@
                 </button>
             </div>
         @else
-            <p class="w-full mr-4">{{$taskBody}}</p>
+            <p class="w-full text-center md:text-justify md:mr-4">{{$taskBody}}</p>
             
             <!-- botones de accion -->
             <div class="flex items-center space-x-2">
