@@ -51,5 +51,28 @@ class TaskCardTest extends TestCase
             ->set('taskStatus',$task->completed)
             ->assertSee($task->body);
     }
-     
+
+    /** @test */
+    public function toggle_edit()
+    {
+        Livewire::test(TaskCard::class)
+            ->assertDontSeeHtml('<textarea')
+            ->call('setEditable')
+            ->assertSeeHtml('<textarea ')
+            ->call('unsetEditable')
+            ->assertDontSeeHtml('<textarea');
+    }
+    
+    /** @test */
+    public function dispatch_edited_task()
+    {
+        Livewire::test(TaskCard::class)
+            ->set('taskBody','text of task')
+            ->assertSee('text of task')
+            ->call('setEditable')
+            ->set('taskBody','task edited')
+            ->call('updateTask')
+            ->assertDispatched('update-task');
+            
+    }
 }
