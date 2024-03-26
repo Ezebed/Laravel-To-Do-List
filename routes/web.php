@@ -20,6 +20,10 @@ use App\Http\Controllers\TaskController;
 
 
 Route::get('/', function () {
+    return view('main');
+});
+
+Route::get('/hola',function(){
     return view('welcome');
 });
 
@@ -33,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::middleware('auth','verified')->group(function (){
+Route::middleware(['auth','verified'])->group(function (){
     Route::get('lang/{lang}',[LanguageController::class, 'SwitchLanguage'])->name('lang');
 
     Route::get('/to-do-list', [ToDoController::class, 'index'])->name('index');
