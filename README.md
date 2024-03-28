@@ -31,6 +31,11 @@ Install dependencies
   npm install
 ```
 
+Migrate database
+```bash
+php artisan migrate
+```
+
 Start the server
 
 ```bash
